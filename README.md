@@ -51,7 +51,7 @@ times(6,
 ```
 
 #### Options
-```
+```js
 var times = require('times')({ indexArg: false });
 times(6, function () {
   // i is not passed to this function
