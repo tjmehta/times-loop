@@ -1,4 +1,6 @@
 # times-loop
+===
+[![Build Status](https://travis-ci.org/tjmehta/times-loop.svg?branch=master)](https://travis-ci.org/tjmehta/times-loop)
 run a function n times, both sync and async functions are supported
 
 ### Usage
