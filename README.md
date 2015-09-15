@@ -17,7 +17,7 @@ times(6, function (i) {
 
 #### Asyncronous loop
 ```js
-// sync usage
+// async usage
 var times = require('times-loop');
 
 times(6,
@@ -33,7 +33,6 @@ times(6,
 // results: [ 0, 1, 2, 3, 4, 5 ]
 
 // error case:
-
 times(6,
   function (i, cb) {
     console.log(i);
