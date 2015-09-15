@@ -1,0 +1,41 @@
+{
+  "name": "times-loop",
+  "version": "1.0.0",
+  "description": "run a function n times, both sync and async functions are supported",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "lab -c -t 100 -a code"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjmehta/times-loop.git"
+  },
+  "keywords": [
+    "times",
+    "loop",
+    "n",
+    "number",
+    "iterator",
+    "generator",
+    "loops",
+    "time"
+  ],
+  "author": "Tejesh Mehta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjmehta/times-loop/issues"
+  },
+  "homepage": "https://github.com/tjmehta/times-loop",
+  "dependencies": {
+    "101": "^1.0.0",
+    "callback-count": "^0.2.0"
+  },
+  "devDependencies": {
+    "code": "^1.5.0",
+    "lab": "^5.16.1",
+    "sinon": "^1.16.1"
+  }
+}
