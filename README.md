@@ -1,4 +1,4 @@
-# times-loop [![Build Status](https://travis-ci.org/tjmehta/times-loop.svg?branch=master)](https://travis-ci.org/tjmehta/times-loop)
+# times-loop [![Build Status](https://travis-ci.org/tjmehta/times-loop.svg?branch=master)](https://travis-ci.org/tjmehta/times-loop) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 run a function n times, both sync and async functions are supported
 
 ### Usage
