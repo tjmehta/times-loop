@@ -1,3 +1,7 @@
+'use strict'
+
+require('es6-promise').polyfill()
+
 var Lab = require('lab')
 var lab = exports.lab = Lab.script()
 var describe = lab.describe
@@ -58,6 +62,46 @@ describe('times', function () {
           expect(ret).to.deep.equal(expectedRet)
         }
         done()
+      })
+    })
+
+    describe('promises', function () {
+      it('should run promises in series, if first result is a promise', function (done) {
+        times(3, function (i) {
+          return Promise.resolve(i)
+        }).then(function (ret) {
+          expect(ret).to.deep.equal([0, 1, 2])
+          done()
+        }).catch(done)
+      })
+
+      it('should just return promises, if first result is not a promise', function (done) {
+        var ret = times(3, function (i) {
+          if (i === 0) {
+            return i
+          }
+          return Promise.resolve(i)
+        })
+        expect(ret[0]).to.equal(0)
+        return ret[1].then(function (i) {
+          expect(i).to.equal(1)
+          return ret[2]
+        }).then(function (i) {
+          expect(i).to.equal(2)
+          expect(ret.length).to.equal(3)
+          done()
+        }).catch(done)
+      })
+
+      describe('opts', function () {
+        it('should run promises in series without i, if first result is a promise', function (done) {
+          times({ n: 3, indexArg: false }, function (i) {
+            return Promise.resolve(i)
+          }).then(function (ret) {
+            expect(ret).to.deep.equal([undefined, undefined, undefined])
+            done()
+          }).catch(done)
+        })
       })
     })
   })
