@@ -1,13 +1,12 @@
-'use strict';
+'use strict'
 
-var assign = require('101/assign');
-var exists = require('101/exists');
-var isNumber = require('101/is-number');
-var isObject = require('101/is-object');
-var syncTimes = require('./lib/sync.js');
-var asyncTimes = require('./lib/async.js');
+var assign = require('101/assign')
+var isNumber = require('101/is-number')
+var isObject = require('101/is-object')
+var syncTimes = require('./lib/sync.js')
+var asyncTimes = require('./lib/async.js')
 
-module.exports = timesWrapper;
+module.exports = timesWrapper
 
 /**
  * Depending on arguments passed it will act as `times` or return a `times` partial function
@@ -20,31 +19,27 @@ module.exports = timesWrapper;
  * @return {times|results} times partial or times results
  */
 function timesWrapper (opts) {
-  var timesFn;
   if (arguments.length <= 1) {
-    return timesPartial(opts || {});
-  }
-  else if (arguments.length === 2) {
-    return syncTimes.apply(null, arguments);
-  }
-  else { // asyncTimes
-    return asyncTimes.apply(null, arguments);
+    return timesPartial(opts || {})
+  } else if (arguments.length === 2) {
+    return syncTimes.apply(null, arguments)
+  } else { // asyncTimes
+    return asyncTimes.apply(null, arguments)
   }
 }
 
 function timesPartial (opts) {
   if (!isObject(opts)) {
-    throw new Error('opts must be an object');
+    throw new Error('opts must be an object')
   }
   return function (opts2) {
-    var args = Array.prototype.slice.call(arguments);
+    var args = Array.prototype.slice.call(arguments)
     if (isNumber(opts2)) {
-      opts2 = { n: opts2 };
+      opts2 = { n: opts2 }
+    } else if (!isObject(opts2)) {
+      throw new Error('n must be a number or object')
     }
-    else if (!isObject(opts2)) {
-      throw new Error('n must be a number or object');
-    }
-    args[0] = assign({}, opts, opts2);
-    return timesWrapper.apply(null, args);
-  };
+    args[0] = assign({}, opts, opts2)
+    return timesWrapper.apply(null, args)
+  }
 }
