@@ -1,6 +1,6 @@
 {
   "name": "times-loop",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "run a function n times, both sync and async functions are supported",
   "main": "index.js",
   "directories": {
