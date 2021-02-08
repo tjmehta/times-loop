@@ -30,7 +30,7 @@ console.log(results)
 
 #### Promise Example: Parallel
 
-runs promise results in parallel
+runs callbacks in parallel and returns a promise that resolves all promise results as an array
 
 ```js
 import { timesParallel } from 'times-loop'
@@ -45,12 +45,12 @@ console.log(results)
 
 #### Promise Example: Series
 
-runs promise results in series
+runs callbacks in series (waits for each promise to resolve in series) and returns a promise that resolves all promise results as an array
 
 ```js
-import { timeSeries } from 'times-loop'
+import { timesSeries } from 'times-loop'
 
-const results = await timeSeries(6, function (i) {
+const results = await timesSeries(6, function (i) {
   return Promise.resolve(i)
 })
 
